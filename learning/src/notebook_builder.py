@@ -34,7 +34,7 @@ LESSONS = [
         "01_市场数据与大语言模型输入输出.ipynb",
         "01 市场数据与大语言模型输入输出",
         "开盘价、最高价、最低价、收盘价和成交量（Open, High, Low, Close and Volume，OHLCV）\n零基础解释：OHLCV 是一天行情的基础字段。",
-        "大语言模型（Large Language Model，LLM）\n零基础解释：LLM 接收文本输入并生成文本输出，本课只展示消息结构，不调用真实模型。",
+        "大语言模型（Large Language Model，LLM）和词元（Token）\n零基础解释：LLM 接收文本输入并生成文本输出，Token 是模型处理文本时使用的小片段，本课只展示消息结构，不调用真实模型。",
         "读取 sample_prices.csv，画收盘价曲线，展示一条新闻如何变成消息列表。",
         """from learning.src.market_data import load_price_data
 import pandas as pd
@@ -259,7 +259,7 @@ def build_notebook(filename: str, title: str, quant: str, llm: str, experiment: 
         md("## 结尾总结\n\n你现在应该理解：量化数据和文本模型输出都必须被结构化、校验并按时间对齐。\n\n哪些结果不能解释为策略一定赚钱：任何图表和收益数字都只是合成数据上的教学结果。\n\n本课使用了哪些英文专业词：Large Language Model, Prompt, Structured Output, Backtesting, Factor, Return, Risk。\n\n下一课与本课有什么关系：下一课会在本课结果上继续增加一个新量化概念和一个新 LLM 概念。"),
     ]
     NOTEBOOK_DIR.mkdir(parents=True, exist_ok=True)
-    with open(NOTEBOOK_DIR / filename, "w", encoding="utf-8") as f:
+    with open(NOTEBOOK_DIR / filename, "w", encoding="utf-8", newline="\n") as f:
         nbf.write(nb, f)
 
 
@@ -270,4 +270,3 @@ def build_all() -> None:
 
 if __name__ == "__main__":
     build_all()
-
