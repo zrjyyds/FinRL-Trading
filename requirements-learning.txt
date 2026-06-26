@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+pydantic
+pytest
+jupyterlab
+ipykernel
+nbformat
+nbclient
+pandas-market-calendars

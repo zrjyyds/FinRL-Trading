@@ -1,0 +1,16 @@
+ticker,section,text
+AAA,business,AAA: The synthetic company sells teaching products and has no real securities meaning.
+AAA,risk,AAA: The synthetic note reminds learners that model output can be wrong.
+AAA,data,AAA: The dataset is deterministic and intended for offline classroom experiments.
+BBB,business,BBB: The synthetic company sells teaching products and has no real securities meaning.
+BBB,risk,BBB: The synthetic note reminds learners that model output can be wrong.
+BBB,data,BBB: The dataset is deterministic and intended for offline classroom experiments.
+CCC,business,CCC: The synthetic company sells teaching products and has no real securities meaning.
+CCC,risk,CCC: The synthetic note reminds learners that model output can be wrong.
+CCC,data,CCC: The dataset is deterministic and intended for offline classroom experiments.
+DDD,business,DDD: The synthetic company sells teaching products and has no real securities meaning.
+DDD,risk,DDD: The synthetic note reminds learners that model output can be wrong.
+DDD,data,DDD: The dataset is deterministic and intended for offline classroom experiments.
+EEE,business,EEE: The synthetic company sells teaching products and has no real securities meaning.
+EEE,risk,EEE: The synthetic note reminds learners that model output can be wrong.
+EEE,data,EEE: The dataset is deterministic and intended for offline classroom experiments.
