@@ -354,50 +354,77 @@ git diff --check
 
 ---
 
-## 17. 提交状态
+## 17. Phase 1.1 教学完善（2026-07-02）
 
-- 最新提交：`ebfed78 feat: add offline beginner quant and LLM learning course`
-- 工作区修改：无
-- 暂存区修改：无
-- 未跟踪文件：6 个 Phase 0 审计文档（docs/BACKTEST_*, FACTOR_RESEARCH_*, PORTFOLIO_*, QUANT_RESEARCH_*, TARGET_COMPANY_*）
+基于 Phase 1 验收报告中发现的缺口，进行了以下针对性修复：
+
+### 已修复项
+
+| # | 修复项 | 详情 |
+|---|--------|------|
+| 1 | Prompt 正文定义 | Notebook 01 新增「什么是提示词」章节，包含零基础解释、模糊vs明确对比、三种消息角色说明、离线代码演示 |
+| 2 | 开仓和平仓 | Notebook 02 新增「开仓和平仓」章节，包含四个数字案例（买入开仓/卖出平仓/卖出开仓/买入平仓）、持仓变化表、Python 状态实验 |
+| 3 | Benchmark 对比 | Notebook 07 新增等权买入并持有基准和现金基准，净值对比图同时展示三条曲线，指标表含五种风险指标，解释四种基准对比情况 |
+| 4 | Embedding + TF-IDF | Notebook 08 新增「从关键词检索到向量检索」章节，包含 Embedding 零基础解释、TF-IDF 英文全称展开、TF/IDF 计算公式、三种检索方法对比表、RAG 完整流程 |
+| 5 | 课后练习个性化 | 全部 8 个 Notebook 的课后练习从模板「修改一个参数」改为 3 道与本课代码直接相关的练习（参数修改、结果解释、错误排查） |
+| 6 | 常见错误个性化 | 全部 8 个 Notebook 的常见错误从统一模板改为 4 条与当前课程直接相关的具体错误 |
+| 7 | 中文图表字体 | 新增 `learning/src/plotting.py`，实现 `configure_chinese_plotting()` 安全字体配置：按优先级尝试 Microsoft YaHei/SimHei/Noto Sans CJK SC/Arial Unicode MS，不可用时回退英文，不硬编码路径，不抛出异常 |
+| 8 | 小数股说明 | 在 `learning/README_ZH.md`、`docs/LEARNING_MODE_ZH.md`、`mini_backtest.py` 文档字符串、Notebook 07 中补充小数股（Fractional Shares）的零基础解释和 A 股/美股差异说明 |
+| 9 | EOF newline | 修复 7 个 Markdown 文件的 EOF 多余空行问题 |
+
+### 新增文件
+
+- `learning/src/plotting.py` — 中文字体安全配置模块
+- `learning/tests/test_phase11_additions.py` — 10 个新增测试
 
 ---
 
-## 18. 已知限制
+## 18. 提交状态
+
+- Phase 1 提交：`d4d83f3 feat: add offline beginner quant and LLM learning course`
+- Phase 1.1 修改：待提交（8 个 Notebook、3 个文档、2 个新文件、1 个源码修改）
+- 工作区修改范围：仅 learning/ 和 docs/（未触及禁止目录）
+
+---
+
+## 19. 已知限制
 
 1. **Python 3.12.4**：学习层已验证通过，但不代表原项目全部模块兼容 Python 3.12。文档推荐 Python 3.11。
-2. **小数股**：mini_backtest.py 默认使用 float 股数（小数股），代码支持但文档说明可进一步增强。
-3. **信号/执行分离**：mini_backtest.py 依赖上游 time_alignment.py 保证信号与执行的时间分离，回测器本身不重复校验信号时间戳。
-4. **中文字体**：图表标题使用英文避免操作系统字体差异，中文仅在 Markdown 中使用。如用户需中文图表标题，需自行配置 matplotlib 中文字体。
-5. **zmq 警告**：Windows 上 pyzmq 的 Proactor event loop 警告，不影响功能。
+2. **中文字体**：已实现安全回退机制。图表优先使用中文标题，字体不可用时自动回退英文。Arial Unicode MS 在部分 Windows 系统上可能缺失。
+3. **信号/执行分离**：mini_backtest.py 依赖上游 time_alignment.py 保证时间分离。
+4. **zmq 警告**：Windows 上 pyzmq 的 Proactor event loop 警告，不影响功能。
+5. **课后练习无自动评分**：练习提供检查方向但不要求唯一答案。
 
 ---
 
-## 19. 最终结论
+## 20. 最终结论
 
-# Phase 1 通过 ✅
+# Phase 1 通过 ✅（含 Phase 1.1 教学完善）
 
-**依据：**
-- 所有文件完整存在（54+ 文件）
-- 22/22 测试全部通过
-- 8/8 Notebook 全部执行成功
+**Phase 1.1 验收结果：**
+- 32/32 测试全部通过（新增 10 个测试）
+- 8/8 Notebook 全部执行成功（含新增教学内容和基准代码）
 - compileall 全部通过
+- git diff --check 无实质空白问题
 - 无禁止目录修改
+- 无网络调用
+- 无 API Key 使用
+- 无交易接口调用
+
+**Phase 1 原始验收结果（保持）：**
+- 所有文件完整存在
 - 无敏感文件泄露
 - 无网络依赖（完全离线）
 - 无交易接口调用
-- 无 API Key 使用
 - 未来数据泄漏防护完整
 - Mock LLM 确定性离线
 - 数据为合成教学数据
-- 图表与中文处理合理
-- 编码转换正常
 
 ---
 
-## 20. 下一步
+## 21. 下一步
 
-**当前未进入 Phase 2。** Phase 1 学习层已通过验收，可以继续使用或进入 Phase 2 规划。
+**当前未进入 Phase 2。** Phase 1 学习层（含 Phase 1.1 教学完善）已通过验收。
 
 Phase 2 建议方向（不自动执行）：
 - 读取并理解 src/backtest/backtest_engine.py

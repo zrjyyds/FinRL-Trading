@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 ```python
 from src.data.trading_calendar import (
-    get_trading_days, 
+    get_trading_days,
     is_trading_day,
     get_missing_trading_days
 )
@@ -86,8 +86,8 @@ else:
 # 查找缺失的交易日
 existing = ['2024-01-02', '2024-01-03', '2024-01-08']
 missing = get_missing_trading_days(
-    existing, 
-    '2024-01-02', 
+    existing,
+    '2024-01-02',
     '2024-01-10'
 )
 print(f"缺失的交易日: {missing}")
@@ -305,7 +305,7 @@ trading_days = get_trading_days('2024-01-01', '2024-12-31', exchange='NYSE')
    ```python
    import logging
    logging.basicConfig(level=logging.INFO)
-   
+
    # 查看增量更新日志
    manager = get_data_manager()
    data = manager.get_price_data(['AAPL'], '2024-01-01', '2024-12-31')
@@ -340,4 +340,3 @@ trading_days = get_trading_days('2024-01-01', '2024-12-31', exchange='NYSE')
 ## 许可证
 
 MIT License
-

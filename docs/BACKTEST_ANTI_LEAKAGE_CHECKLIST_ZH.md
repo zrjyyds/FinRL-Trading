@@ -194,4 +194,3 @@ feature_available_time <= signal_time < execution_time < label_end_time
 本轮发现数据泄漏或回测风险：是。
 
 风险不是证明当前所有结果无效，而是说明当前代码库尚未具备面向 A 股量化研究作品集的严格验证闭环。后续 Phase 必须先补防泄漏数据层和测试，再报告策略收益。
-
